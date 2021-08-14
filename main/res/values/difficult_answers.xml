@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="difficult_ans">
+        <item>An explicit intent is where you tell the system which Activity or system component it should use to respond to this intent. Implicit intents allow you to declare the action you want to perform; the Android system will then check which components are registered to handle that action.\n
+
+Here, you are looking for an understanding of when you should use each type of intent, as the vast majority of the time you will use explicit intents to start components in your own application, while implicit intents are most commonly used to communicate with components from other third party applications.</item>
+        <item>This is still a much-debated topic, but the code used to create an Activity is fundamentally more involved than the code used to create a Fragment. The old Activity has to be destroyed, paused or stopped, and a new Activity has to be created. The developer should acknowledge that the best practice is to only use Activities when you need to swap the entire screen, and use fragments everywhere else.\n
+
+Bonus points if the Android developer mentions any of the following use cases, where you will almost always use a Fragment, rather than an Activity:
+
+-When you are working with UI components or behavior that you are going to use across multiple Activities.
+-When you are using one of the navigational methods that are closely linked to fragments, such as swipe views.
+-When your users would benefit from seeing two different layouts side-by-side.
+-When you have data that needs to persist across Activity restarts (i.e you need to use retained fragments).</item>
+        <item>This question provides an insight into the app "developer's" understanding of the lifecycle of dynamic fragments, as well as Fragment transactions, and the back stack.
+
+If the Back button is going to return the user to the previous Fragment, then you will need to save each Fragment transaction to the back stack, by calling addToBackStack() before you commit() that transaction.
+
+The developer definitely should not suggest creating a Back button specifically to handle navigating between fragments, but bonus points if they mention that you should never try to commit a FragmentTransaction after calling onSaveInstanceState(), as this can result in an exception.</item>
+        <item>If you only need to override the run() method and no other Thread methods, then you should implement Runnable.
+
+In particular, be on the lookout for an Android developer demonstrating an understanding that you should only extend from a class when you need to modify some of its functionality.</item>
+        <item>ThreadPool consists of a task queue and a group of worker threads, which allows it to run multiple parallel instances of a task.
+
+Here, you are assessing the app developer\’s understanding of how multithreading has the potential to improve an app\’s performance, but also how it can negatively impact performance when used incorrectly.
+
+Using ThreadPool is more efficient than having multiple operations waiting to run on a single thread, but it also helps you avoid the considerable overhead of creating and destroying a thread every time you require a worker thread.</item>
+        <item>An AsyncTask is not tied to the lifecycle of the Activity that contains it. If the Activity is destroyed and a new instance of the Activity is created, the AsyncTask won\’t be destroyed. This can lead to a number of problems, but the major ones an Android developer should be aware of are:
+
+Once the AsyncTask completes, it will try to update the former instance of the Activity, resulting in an IllegalArgumentException.
+Since the AsyncTask maintains a reference to the previous instance of the Activity, that Activity won\’t be garbage collected, resulting in a memory leak.
+The solution is to avoid using AsyncTasks for long-running background tasks.</item>
+        <item>Start by making sure your Android application has the necessary read access permissions. Then, get access to the ContentResolver object by calling getContentResolver() on the Context object, and retrieving the data by constructing a query using ContentResolver.query().
+
+The ContentResolver.query() method returns a Cursor, so you can retrieve data from each column using Cursor methods.
+
+Accessing data is one of the tasks that\’s most likely to block the main thread, so the developer should stress the importance of performing data queries on a separate thread.</item>
+        <item>Serializable is a standard Java interface that\’s easy to integrate into your app, as it does not require any methods. Despite being easy to implement, Serializable uses the Java reflection API, which makes it a slow process that creates lots of temporary objects.
+
+Parcelable is optimized for Android, so it\’s faster than Serializable. It\’s also fully customizable, so you can be explicit about the serialization process, which results in less garbage objects.
+
+While the developer may acknowledge that implementing Parcelable does require more work, the performance benefits mean that they should advise using Parcelable over Serialization, wherever possible.</item>
+        <item>Here, you are checking that the Android developer understands that you need an additional component to connect an AdapterView (such as ListView or GridView), to an external data source. An Adapter acts as this bridge, and is also responsible for converting each data entry into a View that can then be added to the AdapterView.</item>
+        <item>This question checks whether the developer is aware of the golden rule of threading on Android: never perform lengthy or intensive operations on the main thread.
+
+An ANR dialog appears when your UI has been unresponsive for more than 5 seconds, usually because you have blocked the main thread. To avoid encountering ANR errors, you should move as much work off the main thread as possible.</item>
+    </string-array>
+</resources>

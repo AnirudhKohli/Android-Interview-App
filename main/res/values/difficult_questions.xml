@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="difficult_ques">
+        <item>What\’s the difference between an implicit and an explicit intent?</item>
+        <item>When should you use a Fragment, rather than an Activity?</item>
+        <item>You are replacing one Fragment with another — how do you ensure that the user can return to the previous Fragment, by pressing the Back button?</item>
+        <item>How would you create a multi-threaded Android app without using the Thread class?</item>
+        <item>What is a ThreadPool? And is it more effective than using several separate Threads?</item>
+        <item>What is the relationship between the lifecycle of an AsyncTask and the lifecycle of an Activity? What problems can this result in, and how can these problems be avoided?</item>
+        <item>How would you access data in a ContentProvider?</item>
+        <item>What is the difference between Serializable and Parcelable?</item>
+        <item>What is an Adapter?</item>
+        <item>What is an Application Not Responding (ANR) error, and how can you prevent them from occurring in your app?</item>
+    </string-array>
+</resources>
